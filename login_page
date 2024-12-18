@@ -1,0 +1,131 @@
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.LayoutManager;
+import java.awt.TextField;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.FlowLayout;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+class login_page{
+
+    public static void main(String[] args) {
+
+
+
+        //Frame creation
+        JFrame frame=new JFrame("LOGIN PAGE");
+        frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        frame.setBackground(Color.WHITE);
+
+
+        //Panel Creation
+        //1.design panels
+        JPanel one=new JPanel();
+        one.setBounds(0,0, 1700,70);
+        one.setBackground(new Color(51,131,255,255));
+
+        JPanel two=new JPanel();   //This panel is not used(BUT can be useful are bottom of login_page)
+        two.setBounds(0, 746, 1700, 40);
+        two.setBackground(new Color(51,131,255,255));
+
+
+        //LOGIN PANEL(Actual login panel)
+        JPanel login_panel=new JPanel();
+        login_panel.setBounds(750,100,500,600);
+        login_panel.setBackground(new Color(51,131,255,255));
+
+        //IMAGE PANEL(used to show image near to login form)
+        JPanel logopanel=new JPanel();
+        logopanel.setBounds(250,95,540,605);
+        ImageIcon icon = new ImageIcon("adj2.png");
+        JLabel thumb = new JLabel();
+        thumb.setIcon(icon);
+
+        //LABEL CREATION 
+
+        //1.
+        JLabel loginletter=new JLabel("SIGN UP");
+        loginletter.setBounds(160, 40, 250, 50);
+        loginletter.setForeground(Color.white);
+        loginletter.setFont(new Font("Sans Serif", Font.BOLD, 45));
+
+        //2.
+        JLabel usernamelabel= new JLabel("User ID:");
+        usernamelabel.setBounds(40, 150, 100, 100);
+        usernamelabel.setForeground(Color.white);
+        usernamelabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
+
+        //3.  
+        JLabel passwordlabel= new JLabel("Password:");
+        passwordlabel.setBounds(40,250,100,100);
+        passwordlabel.setForeground(Color.white);
+        passwordlabel.setFont(new Font("Sans Serif", Font.BOLD, 20));
+
+        // TEXT FIELD CREATION
+        //1.
+        JTextField userfield = new JTextField();
+        //  userfield.setPlaceholder("Enter your name");
+        userfield.setBounds(170, 180, 280, 40);
+        //2.
+        JPasswordField passwordfield = new JPasswordField();
+        passwordfield.setBounds(170, 280, 280, 40);
+
+        //BUTTON CRATION
+        JButton loginbutton=new JButton("LOGIN");
+        loginbutton.setBorderPainted(false);
+        loginbutton.setBorderPainted(false);
+        loginbutton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                new delete_page();
+                //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            }
+
+
+        });
+        loginbutton.setBounds(150, 400, 200, 50);
+        loginbutton.setBackground(new Color(120,192,67,255));
+        loginbutton.setForeground(new Color(255,255,255));
+        loginbutton.setFont(new Font("Sans Serif", Font.PLAIN, 25));
+
+        //adding components to panel
+        login_panel.setLayout(null);
+        login_panel.add(usernamelabel);
+        login_panel.add(passwordlabel);
+        login_panel.add(loginletter);
+        login_panel.add(userfield);
+        login_panel.add(passwordfield);
+        login_panel.add(loginbutton);
+        logopanel.add(thumb);
+
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        //adding panel to frame
+        Container container=frame.getContentPane();
+        container.setLayout(null);
+        container.add(one);
+        // container.add(two);
+        container.add(login_panel);
+        container.add(logopanel);
+        frame.setVisible(true);
+
+    }
+}
